@@ -13,7 +13,7 @@ router.delete("/:id",deleteHotel);
 
 router.get("/:id", getHotel);
 
-router.get("/",getHotels);
+router.get("/",getHotels);                                                              
 
 
 export default router;

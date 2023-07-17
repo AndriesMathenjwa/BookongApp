@@ -7,6 +7,7 @@ import Header from "../../componets/header/header";
 import MailList from "../../componets/mailList/mailList";
 import Footer from "../../componets/footer/footer";
 
+
 const Home = () => {
     return (
         <div>

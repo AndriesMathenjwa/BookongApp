@@ -11,10 +11,17 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import useFetch from "../../hooks/useFetch";
+import { useLocation } from "react-router-dom";
 
 const Hotel = () => {
+  const location = useLocation()
+  const id = location.split("/")[2]
+  console.log(location)
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
+
+  const { data, loading, error } = useFetch(`/hotels/${id}`)
 
   const photos = [
     {
@@ -58,6 +65,7 @@ const Hotel = () => {
     <div>
       <Navbar />
       <Header type="list" />
+      {loading ? ("loading") : (
       <div className="hotelContainer">
         {open && (
           <div className="slider">
@@ -86,7 +94,7 @@ const Hotel = () => {
           <h1 className="hotelTitle">Tower Street Apartments</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon icon={faLocationDot} />
-            <span>Elton St 125 New york</span>
+            <span>{data.address}</span>
           </div>
           <span className="hotelDistance">
             Excellent location – 500m from center
@@ -138,7 +146,7 @@ const Hotel = () => {
         </div>
         <MailList />
         <Footer />
-      </div>
+      </div>}
     </div>
   );
 };

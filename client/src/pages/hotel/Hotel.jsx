@@ -117,7 +117,8 @@ const Hotel = () => {
                 excellent location score of 9.8!
               </span>
               <h2>
-                <b>R{days * data.cheapestPrice * options.room}</b> ({days} nights)
+                <b>R{days * data.cheapestPrice * options.room}</b> ({days}{" "}
+                  nights)
               </h2>
               <button>Reserve or Book Now!</button>
             </div>

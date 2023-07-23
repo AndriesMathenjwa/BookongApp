@@ -15,6 +15,7 @@ import {
   import { format } from "date-fns";
   import { useNavigate } from "react-router-dom";
 import { SearchContext } from "../../context/SearchContext";
+import { AuthContext } from "../../context/AuthContext";
   
   const Header = ({ type }) => {
     const [destination, setDestination] = useState("");
@@ -45,6 +46,7 @@ import { SearchContext } from "../../context/SearchContext";
     };
 
     const {dispatch} = useContext(SearchContext)
+    const { user} = useContext(AuthContext);
   
     const handleSearch = () => {
       dispatch({type:"NEW_SEARCH", payload:{ destination, dates, options}})
@@ -208,4 +210,4 @@ import { SearchContext } from "../../context/SearchContext";
   };
   
   export default Header;
-  
+  0

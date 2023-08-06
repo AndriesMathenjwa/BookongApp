@@ -22,7 +22,7 @@ const Hotel = () => {
   const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
-  const [openModel, setOpenModel] = useState(false);
+  const [openModel, setOpenModal] = useState(false);
 
   const { data, loading, error } = useFetch(`/hotels/find/${id}`)
   const {dates, options} = useContext(SearchContext)
@@ -55,13 +55,13 @@ const Hotel = () => {
     setSlideNumber(newSlideNumber)
   };
 
-  const handleClick = () =>{
-    if(user){
-      setOpenModel(true);
-    }else{
-      navigate("Login")
+  const handleClick = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      navigate("/login");
     }
-  }
+  };
 
   return (
     <div>
@@ -140,7 +140,7 @@ const Hotel = () => {
         <MailList />
         <Footer />
       </div>)}
-      {openModel && <Reserve setOpen={setOpenModel} hotelId={id}/>}
+      {openModel && <Reserve setOpen={setOpenModal} hotelId={id}/>}
     </div>
   );
 };

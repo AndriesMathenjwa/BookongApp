@@ -106,5 +106,5 @@ const Reserve = ({ setOpen, hotelId }) => {
     </div>
   );
 };
-
+//res
 export default Reserve;
